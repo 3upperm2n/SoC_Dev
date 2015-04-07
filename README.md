@@ -1,3 +1,3 @@
 # Jetson TK1 projects
 Notes and projects that relate with TK1.<br>
-Leiming
+ylm@ece.neu.edu
