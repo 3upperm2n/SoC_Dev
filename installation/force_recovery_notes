@@ -1,0 +1,32 @@
+Refer: https://www.youtube.com/watch?v=1ZyACoenTNM
+	http://developer.download.nvidia.com/embedded/jetson/TK1/docs/2_GetStart/Jeston_TK1_QuickStartGuide.pdf#nameddest=Flashing Jetson
+
+Procedure:
+[1] set in the recovery mode before installing the os
+http://demotomohiro.github.io/hardware/jetson_tk1/setup/recovery_mode.html
+
+
+[2]
+mkdir ~/L4T
+cd ~/L4T
+
+[3] download packages from https://developer.nvidia.com/linux-tegra
+
+sudo tar xpf Tegra124_Linux_R21.3.0_armhf.tbz2
+cd Linux_for_Tegra/rootfs/
+sudo tar xpf ../../Tegra_Linux_Sample-Root-Filesystem_R21.3.0_armhf.tbz2 
+cd ../
+sudo ./apply_binaries.sh
+
+
+[4] if using usb 3.0, edit the following file
+sudo vim jetson-tk1.conf
+
+[5]
+$lsusb
+if it shows NVidia Corp., it means the device is in recovery mode.
+
+[6]
+sudo ./flash.sh -S 8GiB jetson-tk1 mmcblk0p1 
+
+[7] reboot after installation
